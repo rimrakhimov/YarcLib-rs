@@ -59,7 +59,7 @@ impl<T> Receiver<T> {
 }
 
 struct RingBufferInner<T> {
-    buffer: Vec<UnsafeCell<Option<T>>>,
+    buffer: Box<[UnsafeCell<Option<T>>]>,
     tail: AtomicUsize,
     head: AtomicUsize,
 }
@@ -72,7 +72,7 @@ impl<T> RingBufferInner<T> {
         buffer.resize_with(capacity + 1, || UnsafeCell::new(None));
 
         Self {
-            buffer,
+            buffer: buffer.into_boxed_slice(),
             tail: AtomicUsize::new(0),
             head: AtomicUsize::new(0),
         }
