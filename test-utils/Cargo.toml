@@ -1,0 +1,8 @@
+[package]
+name = "test-utils"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+#libc = { version = "0.2" }
+cpu-time = { workspace = true }

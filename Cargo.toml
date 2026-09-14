@@ -1,5 +1,12 @@
 [workspace]
 resolver = "3"
-members = []
+members = [
+    "test-utils",
+    "waitgroup",
+]
 
 [workspace.dependencies]
+test-utils = { path = "test-utils" }
+waitgroup = { path = "waitgroup" }
+
+cpu-time = { version = "1.0.0" }
