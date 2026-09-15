@@ -1,11 +1,13 @@
 [workspace]
 resolver = "3"
 members = [
+    "ring-buffer",
     "test-utils",
     "waitgroup",
 ]
 
 [workspace.dependencies]
+ring-buffer = { path = "ring-buffer" }
 test-utils = { path = "test-utils" }
 waitgroup = { path = "waitgroup" }
 
